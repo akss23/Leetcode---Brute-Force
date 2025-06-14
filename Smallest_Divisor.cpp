@@ -14,4 +14,4 @@ public:
         }
         return -1;
     }
-}; Added brute force solution for Smallest Divisor problem
+}; 
