@@ -1,0 +1,31 @@
+class Solution {
+public:
+
+bool bs(vector<int>& v, int a){
+    int start=0;
+    int end = v.size()-1;
+    while(start<=end){
+     int mid=start+(end -start)/2;
+     if(v[mid]== a) return true;
+     else if(v[mid]>a) end = mid-1;
+     else start=mid+1;
+    }
+    return false;
+}
+
+    int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        int n1=nums1.size();
+        int n2=nums2.size();
+        if(n1>n2){
+            for(int i=0;i<n2;i++){
+                if(bs(nums1,nums2[i]) == true) return nums2[i];
+            }
+        }
+        else {
+            for(int i = 0 ; i<n1;i++){
+                if(bs(nums2,nums1[i]) == true) return nums1[i];
+            }
+        }
+     return -1;
+    }
+};
