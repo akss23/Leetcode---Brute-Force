@@ -1,0 +1,21 @@
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        map<int,int> mpp;
+        int n=nums.size();
+        int cnt=0;
+        for(int i=0;i<n;i++){
+            if(nums[i] == 0) {
+                cnt++; // this is basically to count number of zeroes
+            }
+        }
+        nums.erase(remove(nums.begin(), nums.end(), 0), nums.end()); // this is basically to remove all the zeroes all at once here
+        for(int i=0;i<cnt;i++){
+            nums.push_back(0);
+        } // this loop is basically to push the zeroes at the end like we genrally do 
+        // for(int i=0;i<nums.size();i++){
+        //     mpp[nums[i]] ++;
+        // }
+
+    }
+};
