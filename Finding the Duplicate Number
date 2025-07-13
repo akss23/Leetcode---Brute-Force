@@ -1,0 +1,10 @@
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]) return nums[i]; // or we can even use unordered set to store the values as it internally uses hashing to decide if this number has occured before or not and if occured we can return that number itself
+        }
+        return 0;
+    }
+};
