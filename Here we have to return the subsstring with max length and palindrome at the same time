@@ -1,0 +1,35 @@
+class Solution {
+public:
+    bool checkpalindrome(string &s , int a ,int b){
+        while(a<b){
+            if(s[a] != s[b]) return false;
+            else {
+                a++;
+                b--;
+            }
+        }
+        return true;
+    }
+
+
+    string longestPalindrome(string s) {
+        int n=s.size();
+        
+        string ansstring="";
+       int ml=0;
+        for(int i=0;i<n;i++){
+          int l=0;
+            for(int j=i;j<n;j++){
+              if(checkpalindrome(s,i,j)){
+                l=j-i+1;
+                if(l>ml){
+                    ml=l;
+                    ansstring=s.substr(i,l);
+                }
+              }
+               
+            }
+        }
+        return ansstring;
+    }
+};
