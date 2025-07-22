@@ -1,0 +1,32 @@
+class Solution {
+public:
+    int maximum69Number (int num) {
+        
+        // int n=num.size();
+        int cnt=0;
+        int ans=0;
+        int onum=num;
+        while(onum>0){
+            onum=onum/10;
+            cnt++;
+        }// here we are counting the number of digits in it
+        int n=cnt;
+        vector<int> v(n);
+        for(int i=n-1;i>=0;i--){
+            v[i]=num%10;
+            num=num/10;
+        } // here humne vector mein store karliya hain humare diye hue number kooooo
+
+        for(int i=0;i<v.size();i++){
+            if(v[i] == 6) { v[i]=9;
+            break;
+            }
+        } // actual swapping of digit from 6 to 9 taaki overall number maximise ho paayen
+        int multiplier=1;
+        for(int i=v.size()-1;i>=0;i--){
+           ans=ans+ (v[i]*multiplier);
+           multiplier*=10;
+        }
+        return ans;
+    }
+};
