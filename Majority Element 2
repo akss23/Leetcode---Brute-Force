@@ -1,0 +1,15 @@
+class Solution {
+public:
+    vector<int> majorityElement(vector<int>& nums) {
+        int n=nums.size();
+        map<int,int> mpp;
+        vector<int> v;
+        for(int i=0;i<n;i++){
+            mpp[nums[i]]++;
+            if(mpp[nums[i]] >n/3) v.push_back(nums[i]);
+        }
+        set<int> s(v.begin(),v.end());
+        vector<int> vfinal(s.begin(),s.end());
+        return vfinal;
+    }
+};
